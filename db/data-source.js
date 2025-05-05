@@ -1,19 +1,5 @@
 const { DataSource } = require("typeorm");
-const db_config = require("../config/db");
-
-const { Admin } = require("../entities/Admin");
-const { Coach_Skill } = require("../entities/Coach_Skill");
-const { Coach } = require("../entities/Coach");
-const { Course_Chapter } = require("../entities/Course_Chapter");
-const { Course_Video } = require("../entities/Course_Video");
-const { Course } = require("../entities/Course");
-const { Payment_Transfer } = require("../entities/Payment_Transfer");
-const { Rating } = require("../entities/Rating");
-const { Skill } = require("../entities/Skill");
-const { Subscription_Skill } = require("../entities/Subscription_Skill");
-const { Subscription } = require("../entities/Subscription");
-const { User_Course_Favorite } = require("../entities/User_Course_Favorite");
-const { User } = require("../entities/User");
+require("dotenv").config();
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -26,19 +12,19 @@ const AppDataSource = new DataSource({
   synchronize: false, // 開發時 true，部署時請改為 false 並使用 migration
   logging: true,
   entities: [
-    Admin,
-    Coach_Skill,
-    Coach,
-    Course_Chapter,
-    Course_Video,
-    Course,
-    Payment_Transfer,
-    Rating,
-    Skill,
-    Subscription_Skill,
-    Subscription,
-    User_Course_Favorite,
-    User,
+    require("../entities/Admin"),
+    require("../entities/User"),
+    require("../entities/Coach"),
+    require("../entities/Course"),
+    require("../entities/Subscription"),
+    require("../entities/Subscription_Skill"),
+    require("../entities/Rating"),
+    require("../entities/Coach_Skill"),
+    require("../entities/Skill"),
+    require("../entities/User_Course_Favorite"),
+    require("../entities/Course_Chapter"),
+    require("../entities/Payment_Transfer"),
+    require("../entities/Course_Video"),
   ],
 });
 

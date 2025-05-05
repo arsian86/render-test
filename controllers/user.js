@@ -1,6 +1,4 @@
 const AppDataSource = require("../db/data-source");
-const { User } = require("../entities/User");
-const { User_Course_Favorite } = require("../entities/User_Course_Favorite");
 const userRepo = AppDataSource.getRepository("User");
 const favoriteRepo = AppDataSource.getRepository("User_Course_Favorite");
 const {
