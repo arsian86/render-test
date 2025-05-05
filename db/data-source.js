@@ -1,5 +1,5 @@
 const { DataSource } = require("typeorm");
-require("dotenv").config();
+const db_config = require("../config/db");
 
 const AppDataSource = new DataSource({
   type: "postgres",
